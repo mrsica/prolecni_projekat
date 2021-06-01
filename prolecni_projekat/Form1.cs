@@ -15,6 +15,8 @@ namespace prolecni_projekat
         public Form1()
         {
             InitializeComponent();
+
+            // dunja dodala
         }
        
     }
