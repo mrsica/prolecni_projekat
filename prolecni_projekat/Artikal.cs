@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,9 +27,11 @@ namespace prolecni_projekat
         string jedinicaProdaje;
         string usloviCuvanja;
         VrstaArtikla vrsta;
-        
 
-        
+        public double Cena
+        {
+            get { return cena; }
+        }        
 
         public Artikal(string proizvodjac, string naziv, double cena, string ambalaza, DateTime rokTrajanja, string jedinicaProdaje, VrstaArtikla vrsta, string usloviCuvanja)
         {
@@ -71,5 +74,37 @@ namespace prolecni_projekat
                 }
             }
         }
+
+        public bool IstekoRok()
+        {
+            if (DateTime.Now > rokTrajanja)
+                return true;
+            return false;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Artikal artikal &&
+                   proizvodjac == artikal.proizvodjac &&
+                   naziv == artikal.naziv &&
+                   cena == artikal.cena &&
+                   ambalaza == artikal.ambalaza &&
+                   rokTrajanja == artikal.rokTrajanja &&
+                   jedinicaProdaje == artikal.jedinicaProdaje &&
+                   usloviCuvanja == artikal.usloviCuvanja &&
+                   vrsta == artikal.vrsta;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 1466740483;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(proizvodjac);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(naziv);
+            hashCode = hashCode * -1521134295 + cena.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ambalaza);
+            hashCode = hashCode * -1521134295 + rokTrajanja.GetHashCode();
+            return hashCode;
+        }
+
     }
 }
