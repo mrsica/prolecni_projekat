@@ -29,6 +29,11 @@ namespace prolecni_projekat
         int id;
         Uloga uloga;
 
+        public Uloga UlogaRadnika
+        {
+            get { return uloga; }
+        }
+
         static int redniBr=0;
 
         public Radnik(Uloga uloga)
