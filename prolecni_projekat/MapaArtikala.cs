@@ -9,22 +9,22 @@ namespace prolecni_projekat
 {
     class MapaArtikala
     {
-        Dictionary<Artikal, int> mapa;
+        Dictionary<int, int> mapa;  // key: bar_kod, value: kolicina 
 
         public MapaArtikala()
         {
-            mapa = new Dictionary<Artikal, int>();
+            mapa = new Dictionary<int, int>();
         }
 
-        public void Dodaj(Artikal a, int kolicina)
+        public void Dodaj(int bk, int kolicina)
         {
-            if (mapa.ContainsKey(a))
+            if (mapa.ContainsKey(bk))
             {
-                mapa[a] += kolicina;
+                mapa[bk] += kolicina;
             }
             else
             {
-                mapa.Add(a, kolicina);
+                mapa.Add(bk, kolicina);
             }
         }
 

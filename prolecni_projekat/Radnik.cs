@@ -21,27 +21,40 @@ namespace prolecni_projekat
     //ovo mora da se resi kako cemo da uradimo
     class Radnik
     {
-        string ime;
-        string prezime;
-        int godiste;
+        // jel nam treba?
+        //string ime; 
+        //string prezime;
+        //int godiste;
+
         int id;
         Uloga uloga;
 
         static int redniBr=0;
 
-        public Radnik(string ime, string prezime, int godiste)
+        public Radnik(Uloga uloga)
         {
-            this.ime = ime;
-            this.prezime = prezime;
-            this.godiste = godiste;
+            this.uloga = uloga;
             this.id = redniBr;
-            //this.uloga = uloga;
-            
 
             redniBr++;
         }
+
+
+
+        //public Radnik(string ime, string prezime, int godiste)
+        //{
+        //    this.ime = ime;
+        //    this.prezime = prezime;
+        //    this.godiste = godiste;
+        //    this.id = redniBr;
+        //    //this.uloga = uloga;
+
+        //    redniBr++;
+        //}
     }
 
+
+    //ipak ne jelda?
     //class Mesar : Radnik
     //{
     //    string ime;

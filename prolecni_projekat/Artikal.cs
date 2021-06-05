@@ -19,6 +19,7 @@ namespace prolecni_projekat
     }
     class Artikal
     {
+        int bar_kod;
         string proizvodjac;
         string naziv;
         double cena;
@@ -33,8 +34,14 @@ namespace prolecni_projekat
             get { return cena; }
         }        
 
-        public Artikal(string proizvodjac, string naziv, double cena, string ambalaza, DateTime rokTrajanja, string jedinicaProdaje, VrstaArtikla vrsta, string usloviCuvanja)
+        public int BarKod
         {
+            get { return bar_kod; }
+        }
+
+        public Artikal(int bar_kod, string proizvodjac, string naziv, double cena, string ambalaza, DateTime rokTrajanja, string jedinicaProdaje, VrstaArtikla vrsta, string usloviCuvanja)
+        {
+            this.bar_kod = bar_kod;
             this.proizvodjac = proizvodjac;
             this.naziv = naziv;
             this.cena = cena;
@@ -46,8 +53,9 @@ namespace prolecni_projekat
         }
 
         //konstruktor kad nema uslova cuvanja
-        public Artikal(string proizvodjac, string naziv, double cena, string ambalaza, DateTime rokTrajanja, string jedinicaProdaje, VrstaArtikla vrsta)
+        public Artikal(int bar_kod, string proizvodjac, string naziv, double cena, string ambalaza, DateTime rokTrajanja, string jedinicaProdaje, VrstaArtikla vrsta)
         {
+            this.bar_kod = bar_kod;
             this.proizvodjac = proizvodjac;
             this.naziv = naziv;
             this.cena = cena;
@@ -82,9 +90,9 @@ namespace prolecni_projekat
             return false;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object obj) // da li nam ovo treba?
         {
-            return obj is Artikal artikal &&
+            return obj is Artikal artikal && bar_kod == artikal.bar_kod &&
                    proizvodjac == artikal.proizvodjac &&
                    naziv == artikal.naziv &&
                    cena == artikal.cena &&
@@ -95,7 +103,7 @@ namespace prolecni_projekat
                    vrsta == artikal.vrsta;
         }
 
-        public override int GetHashCode()
+        public override int GetHashCode() // da li treba nesto dodati zbog bar_kod (da li nam treba ovo uopste?)
         {
             int hashCode = 1466740483;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(proizvodjac);

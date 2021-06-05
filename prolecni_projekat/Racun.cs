@@ -30,15 +30,15 @@ namespace prolecni_projekat
             iznos = 0;
         }
 
-        public void Dodaj(Artikal a, int kolicina)
+        public void Dodaj(Artikal a, int kolicina) //jel ok?
         {
-            racun.Dodaj(a, kolicina);
+            racun.Dodaj(a.BarKod, kolicina);
             iznos += a.Cena * kolicina;
         }
 
         public void Dodaj(Artikal a)
         {
-            racun.Dodaj(a, 1);
+            racun.Dodaj(a.BarKod, 1);
             iznos += a.Cena;
         }
 

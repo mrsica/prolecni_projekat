@@ -16,12 +16,14 @@ namespace prolecni_projekat
             lager = new MapaArtikala();
         }
 
-        public void Dodaj(Artikal a, int kolicina)
+        // TO_DO: dodati da se artikli mogu dodavati grupno
+
+        public void Dodaj(int bk_artikla, int kolicina)
         {
-            lager.Dodaj(a, kolicina);
+            lager.Dodaj(bk_artikla, kolicina);
         }
-
-
+        
+        
         //public void IsporukaJednog(Artikal a, int kolicina)
         //{
         //    if(lager.ContainsKey(a))
