@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace prolecni_projekat
 {
+    //  nisam jos sig da li ovo da brisem
     enum VrstaArtikla
     {
         Trajni,
@@ -17,17 +18,17 @@ namespace prolecni_projekat
         VocePovrce,
         Zaledjeno
     }
-    class Artikal
+    abstract class Artikal
     {
-        int bar_kod;
-        string proizvodjac;
-        string naziv;
-        double cena;
-        string ambalaza;
-        DateTime rokTrajanja;
-        string jedinicaProdaje;
-        string usloviCuvanja; //opis
-        VrstaArtikla vrsta;
+        protected int bar_kod;
+        protected string proizvodjac;
+        protected string naziv;
+        protected double cena;
+        protected string ambalaza;
+        protected DateTime rokTrajanja;
+        protected string jedinicaProdaje;
+        protected string usloviCuvanja; //opis
+        protected VrstaArtikla vrsta;
 
         public double Cena
         {
@@ -66,20 +67,22 @@ namespace prolecni_projekat
             this.vrsta = vrsta;
         }
 
-        public void SmanjiCenu()
+        public virtual void SmanjiCenu()
         {
             TimeSpan razlika = rokTrajanja.Subtract(DateTime.Now);
             if(razlika.TotalDays < 10)
             {
-                if(vrsta.Equals(VrstaArtikla.Meso) || vrsta.Equals(VrstaArtikla.MlecniProizvod) 
-                    || vrsta.Equals(VrstaArtikla.Pecivo_Kuvano))
-                {
-                    cena -= cena/2;
-                }
-                else
-                {
-                    cena -= (cena / 10) * 3;
-                }
+                cena -= (cena / 10) * 3;
+
+                //if(vrsta.Equals(VrstaArtikla.Meso) || vrsta.Equals(VrstaArtikla.MlecniProizvod) 
+                //    || vrsta.Equals(VrstaArtikla.Pecivo_Kuvano))
+                //{
+                //    cena -= cena/2;
+                //}
+                //else
+                //{
+                //    cena -= (cena / 10) * 3;
+                //}
             }
         }
 

@@ -8,10 +8,14 @@ namespace prolecni_projekat
 {
     class CentralniLager : Lager
     {
-        MapaArtikala lager_pokvareno;
+        Lager lager_pokvareno;
+        Lager lager_ispravno;
         public CentralniLager()
         {
-            lager_pokvareno = new MapaArtikala();
+            lager_ispravno = new Lager();
+            lager_pokvareno = new Lager();
         }
+
+
     }
 }

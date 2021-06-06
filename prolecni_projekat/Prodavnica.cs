@@ -49,7 +49,8 @@ namespace prolecni_projekat
         public void ZatvoriProdavnicu()
         {
             otvorena = false;
-            // treba da trigeruje razne stvari
+            // treba da trigeruje razne stvari (celokupan lager prodavnice se vraca nazad u centralni lager,
+            // a zaposleni se upucuju u druge radnje 
         }
 
         

@@ -10,36 +10,38 @@ namespace prolecni_projekat
     class Racun
     {
         
-        MapaArtikala racun;
+        //MapaArtikala racun; // nisam sigurna da li je ovo potrebno, imamo sad List<Artikala>
         DateTime datum;
         int br_kase;
-        Radnik kasir;
+        Kasir kasir;
         double iznos;
-        //List<>
+        List<Artikal> kupljeni_artikli;
 
         public double Iznos
         {
             get { return iznos; }
         }
 
-        public Racun(DateTime datum, int br_kase, Radnik kasir)
+        public Racun(DateTime datum, int br_kase, Kasir kasir)
         {
             this.datum = datum;
             this.br_kase = br_kase;
             this.kasir = kasir;
-            racun = new MapaArtikala();
+            //racun = new MapaArtikala();
+            kupljeni_artikli = new List<Artikal>();
             iznos = 0;
         }
 
-        public void Dodaj(Artikal a, int kolicina) //jel ok?
-        {
-            racun.Dodaj(a.BarKod, kolicina);
-            iznos += a.Cena * kolicina;
-        }
+        //public void Dodaj(Artikal a, int kolicina) //jel ok?
+        //{
+        //    racun.Dodaj(a.BarKod, kolicina);
+        //    iznos += a.Cena * kolicina;
+        //}
 
         public void Dodaj(Artikal a)
         {
-            racun.Dodaj(a.BarKod, 1);
+            //racun.Dodaj(a.BarKod, 1);
+            kupljeni_artikli.Add(a);
             iznos += a.Cena;
         }
 

@@ -6,20 +6,23 @@ using System.Threading.Tasks;
 
 namespace prolecni_projekat
 {
+    // trebace nam enum i dalje za zaposljavanje u prodavnici
     enum Uloga
     {
         Kasir,
         Aranzer,
         Mesar,
         Pekar_Kuvar,
-        Menadzer,
-        Direktor,
+        Menadzer_Prodavnice,
+        Menadzer_Posl_Jed,
+        PomocnoOsoblje,
+        Direktor_Posl_Jed,
         Direkcija,
-        PomocnoOsoblje
+        Generalni_Direktor
     }
 
     //ovo mora da se resi kako cemo da uradimo
-    class Radnik
+    abstract class Radnik
     {
         // jel nam treba?
         //string ime; 
@@ -34,7 +37,7 @@ namespace prolecni_projekat
             get { return uloga; }
         }
 
-        static int redniBr=0;
+        static int redniBr = 0;
 
         public Radnik(Uloga uloga)
         {
@@ -44,7 +47,7 @@ namespace prolecni_projekat
             redniBr++;
         }
 
-
+        public abstract void radi();
 
         //public Radnik(string ime, string prezime, int godiste)
         //{

@@ -9,7 +9,7 @@ namespace prolecni_projekat
     class Kasa
     {
         List<Racun> otkucaniRacuni;
-        Radnik kasir;
+        Kasir kasir;
         // Racun trenutniRacun; da li nam treba ako ne pravimo GUI?
         int brojKase;
         double zarada;

@@ -19,7 +19,7 @@ namespace prolecni_projekat
             int prosirenje = (int)((povrsina - 200) / 50);
             spisak_slobodnih_radnih_mesta = new Dictionary<Uloga, int>() // prvo su sva mesta slobodna
             {
-                {Uloga.Menadzer, 2 + 2*prosirenje }, {Uloga.Kasir, 4 + 2*prosirenje}, {Uloga.Aranzer, 4 + 2*prosirenje}, {Uloga.Mesar, 4 + 2*prosirenje}, {Uloga.Pekar_Kuvar, 2 + 2*prosirenje}, {Uloga.PomocnoOsoblje, 2 + 2*prosirenje}
+                {Uloga.Menadzer_Prodavnice, 2 + 2*prosirenje }, {Uloga.Kasir, 4 + 2*prosirenje}, {Uloga.Aranzer, 4 + 2*prosirenje}, {Uloga.Mesar, 4 + 2*prosirenje}, {Uloga.Pekar_Kuvar, 2 + 2*prosirenje}, {Uloga.PomocnoOsoblje, 2 + 2*prosirenje}
             };// u zad pise nema peciva, a trazi se 2 pekara? (stavila sam ih ovde za svaki sluc)
 
             spisak_zaposlenih = new List<Radnik>();
