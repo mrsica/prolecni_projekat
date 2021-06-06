@@ -15,6 +15,7 @@ namespace prolecni_projekat
         int br_kase;
         Radnik kasir;
         double iznos;
+        //List<>
 
         public double Iznos
         {

@@ -11,14 +11,16 @@ namespace prolecni_projekat
     {
         MapaArtikala lager;
 
+        //treba dodati bukv skup artikala koji postoje ovde
         public Lager()
         {
+            //inicijalizuejem samo listu artikala (i ovo sto sam vec uradila)
             lager = new MapaArtikala();
         }
 
         // TO_DO: dodati da se artikli mogu dodavati grupno
 
-        public void Dodaj(int bk_artikla, int kolicina)
+        public void Dodaj(int bk_artikla, int kolicina) //nzm kako ovo za kolicinu?   - moze da se makne jer cemo uvek da povecavamo za 1 zbog one f-je kod maje
         {
             lager.Dodaj(bk_artikla, kolicina);
         }

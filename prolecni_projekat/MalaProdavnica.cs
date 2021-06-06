@@ -8,7 +8,7 @@ namespace prolecni_projekat
 {
     class MalaProdavnica : Prodavnica
     {
-        public MalaProdavnica(double povrsina)
+        public MalaProdavnica(double povrsina) : base(povrsina)
         {
             if (povrsina > 70)
                 throw new Exception("Mala prodavnica ima povrsinu manju od 70 m^2.");

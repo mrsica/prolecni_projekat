@@ -26,14 +26,14 @@ namespace prolecni_projekat
         string ambalaza;
         DateTime rokTrajanja;
         string jedinicaProdaje;
-        string usloviCuvanja;
+        string usloviCuvanja; //opis
         VrstaArtikla vrsta;
 
         public double Cena
         {
             get { return cena; }
         }        
-
+        
         public int BarKod
         {
             get { return bar_kod; }
@@ -69,7 +69,7 @@ namespace prolecni_projekat
         public void SmanjiCenu()
         {
             TimeSpan razlika = rokTrajanja.Subtract(DateTime.Now);
-            if(razlika.TotalDays<10)
+            if(razlika.TotalDays < 10)
             {
                 if(vrsta.Equals(VrstaArtikla.Meso) || vrsta.Equals(VrstaArtikla.MlecniProizvod) 
                     || vrsta.Equals(VrstaArtikla.Pecivo_Kuvano))
