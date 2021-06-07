@@ -10,7 +10,9 @@ namespace prolecni_projekat
     class Lager
     {
         MapaArtikala stanje;
-        List<Artikal> skup_artikala;
+        List<Artikal> skup_artikala; //ako se ukloni rok trajanja onda samo mapa artikala sa kljucem
+        //Artikal a da nema skupa artikala a da je hash kod bar kod
+        //msm malo je bezveze da se menja zadatak ali videcemo
 
         public int BrojArtikalaNaLageru
         {
@@ -30,7 +32,7 @@ namespace prolecni_projekat
         public void Dodaj(Artikal a, int kolicina) 
         {
             stanje.Dodaj(a.BarKod, kolicina);
-            skup_artikala.Add(a);
+            skup_artikala.Add(a); //jel treba uvek? nmp
         }
 
         

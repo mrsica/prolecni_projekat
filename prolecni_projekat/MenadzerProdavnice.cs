@@ -12,6 +12,8 @@ namespace prolecni_projekat
 
         public override void radi()
         {
+            //primi robu
+            //dogadjaj poziva se na lageru onPrijem robe
             throw new NotImplementedException();
         }
     }

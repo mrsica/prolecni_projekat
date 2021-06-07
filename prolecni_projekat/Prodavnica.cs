@@ -57,6 +57,9 @@ namespace prolecni_projekat
             // a zaposleni se upucuju u druge radnje 
         }
 
+
+        //dogadjaj proveri
+
         public void ProveriArtikle()
         {
             int broj_artikala_po_aranzeru = lager_prodavnice.BrojArtikalaNaLageru / broj_zaposlenih_aranzera;

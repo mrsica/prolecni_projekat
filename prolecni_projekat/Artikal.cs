@@ -25,10 +25,12 @@ namespace prolecni_projekat
         protected string naziv;
         protected double cena;
         protected string ambalaza;
-        protected DateTime rokTrajanja;
+        protected DateTime rokTrajanja;//diskusija, da li treba uopste ovo, aranzer proverava, pravi nam razliku izmedju dva ista artikla
         protected string jedinicaProdaje;
         protected string usloviCuvanja; //opis
         protected VrstaArtikla vrsta;
+
+        protected bool pred_istekom_roka;//nada dodala
 
         public double Cena
         {
@@ -51,6 +53,7 @@ namespace prolecni_projekat
             this.jedinicaProdaje = jedinicaProdaje;
             this.usloviCuvanja = usloviCuvanja;
             this.vrsta = vrsta;
+            pred_istekom_roka = false;
         }
 
         //konstruktor kad nema uslova cuvanja
@@ -65,6 +68,7 @@ namespace prolecni_projekat
             this.jedinicaProdaje = jedinicaProdaje;
             this.usloviCuvanja = "";
             this.vrsta = vrsta;
+            pred_istekom_roka = false;
         }
 
         public virtual void SmanjiCenu()
