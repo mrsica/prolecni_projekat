@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aranzer.cs" />
+    <Compile Include="AranzerEventArgs.cs" />
     <Compile Include="Artikal.cs" />
     <Compile Include="CentralniLager.cs" />
     <Compile Include="DirektorPoslovneJedinice.cs" />

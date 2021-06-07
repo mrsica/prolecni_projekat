@@ -12,6 +12,11 @@ namespace prolecni_projekat
         MapaArtikala stanje;
         List<Artikal> skup_artikala;
 
+        public int BrojArtikalaNaLageru
+        {
+            get { return skup_artikala.Count; }
+        }
+
         //treba dodati bukv skup artikala koji postoje ovde
         public Lager()
         {
@@ -27,8 +32,11 @@ namespace prolecni_projekat
             stanje.Dodaj(a.BarKod, kolicina);
             skup_artikala.Add(a);
         }
+
         
-        
+
+
+
         //public void IsporukaJednog(Artikal a, int kolicina)
         //{
         //    if(lager.ContainsKey(a))

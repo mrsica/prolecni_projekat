@@ -11,6 +11,11 @@ namespace prolecni_projekat
     {
         Dictionary<int, int> mapa;  // key: bar_kod, value: kolicina 
 
+        public int Size()
+        {
+            return mapa.Count;
+        }
+
         public MapaArtikala()
         {
             mapa = new Dictionary<int, int>();

@@ -17,11 +17,13 @@ namespace prolecni_projekat
         protected Dictionary<Uloga, int> spisak_slobodnih_radnih_mesta; // int - br slob mesta za odredjeni posao
 
         protected bool otvorena;
+        protected int broj_zaposlenih_aranzera;
 
         public Prodavnica(double p)
         {
             lager_prodavnice = new Lager(); // ne znam gde ubacujem stvari u lager?
             povrsina = p;
+            broj_zaposlenih_aranzera = 0;
         }
 
         protected bool ZaposliRadnika(Radnik r)
@@ -30,6 +32,8 @@ namespace prolecni_projekat
             {
                 spisak_zaposlenih.Add(r);
                 spisak_slobodnih_radnih_mesta[r.UlogaRadnika]--;
+                if (r.UlogaRadnika == Uloga.Aranzer)
+                    broj_zaposlenih_aranzera++;
                 return true;
             }
             return false;
@@ -53,7 +57,25 @@ namespace prolecni_projekat
             // a zaposleni se upucuju u druge radnje 
         }
 
-        
+        public void ProveriArtikle()
+        {
+            int broj_artikala_po_aranzeru = lager_prodavnice.BrojArtikalaNaLageru / broj_zaposlenih_aranzera;
+            int ind_aranzera = 0;
+            foreach (Radnik r in spisak_zaposlenih)
+            {
+                if (r.UlogaRadnika == Uloga.Aranzer)
+                {
+                    Aranzer a = r as Aranzer;
+                    //odakle dokle sa liste artikala sa lagera koje sve proverava 1 aranzer
+                    a.Proveri(lager_prodavnice,ind_aranzera*broj_artikala_po_aranzeru,(ind_aranzera+1)*broj_artikala_po_aranzeru-1);
+                    ind_aranzera++;
+                }
+
+                    
+            }
+            
+
+        }
 
         
     }

@@ -93,29 +93,30 @@ namespace prolecni_projekat
             return false;
         }
 
-        public override bool Equals(object obj) // da li nam ovo treba?
-        {
-            return obj is Artikal artikal && bar_kod == artikal.bar_kod &&
-                   proizvodjac == artikal.proizvodjac &&
-                   naziv == artikal.naziv &&
-                   cena == artikal.cena &&
-                   ambalaza == artikal.ambalaza &&
-                   rokTrajanja == artikal.rokTrajanja &&
-                   jedinicaProdaje == artikal.jedinicaProdaje &&
-                   usloviCuvanja == artikal.usloviCuvanja &&
-                   vrsta == artikal.vrsta;
-        }
 
-        public override int GetHashCode() // da li treba nesto dodati zbog bar_kod (da li nam treba ovo uopste?)
-        {
-            int hashCode = 1466740483;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(proizvodjac);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(naziv);
-            hashCode = hashCode * -1521134295 + cena.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ambalaza);
-            hashCode = hashCode * -1521134295 + rokTrajanja.GetHashCode();
-            return hashCode;
-        }
+        //public override bool Equals(object obj) // da li nam ovo treba?
+        //{
+        //    return obj is Artikal artikal && bar_kod == artikal.bar_kod &&
+        //           proizvodjac == artikal.proizvodjac &&
+        //           naziv == artikal.naziv &&
+        //           cena == artikal.cena &&
+        //           ambalaza == artikal.ambalaza &&
+        //           rokTrajanja == artikal.rokTrajanja &&
+        //           jedinicaProdaje == artikal.jedinicaProdaje &&
+        //           usloviCuvanja == artikal.usloviCuvanja &&
+        //           vrsta == artikal.vrsta;
+        //}
+
+        //public override int GetHashCode() // da li treba nesto dodati zbog bar_kod (da li nam treba ovo uopste?)
+        //{
+        //    int hashCode = 1466740483;
+        //    hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(proizvodjac);
+        //    hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(naziv);
+        //    hashCode = hashCode * -1521134295 + cena.GetHashCode();
+        //    hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ambalaza);
+        //    hashCode = hashCode * -1521134295 + rokTrajanja.GetHashCode();
+        //    return hashCode;
+        //}
 
     }
 }
