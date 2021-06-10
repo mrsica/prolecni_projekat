@@ -32,6 +32,8 @@ namespace prolecni_projekat
             mapa = new Dictionary<Artikal, int>();
         }
 
+        //moze da se zove azuriraj posto ima ovo sa += i da ima bool ako je true onda se dodaje, ako se skida kao kod
+        //otkucavanja racuna ide false
         public void Dodaj(Artikal bk, int kolicina)
         {
             if (mapa.ContainsKey(bk))

@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace prolecni_projekat
 {
-    class MenadzerEventArgs
+    class MenadzerEventArgs:EventArgs
     {
+        public MapaArtikala ma;
+
+        public MenadzerEventArgs(MapaArtikala ma)
+        {
+            this.ma = ma;
+        }
     }
 }

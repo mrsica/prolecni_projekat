@@ -18,6 +18,13 @@ namespace prolecni_projekat
         VocePovrce,
         Zaledjeno
     }
+
+    enum StanjeArtikla
+    {
+        Normalno,
+        PredIstekom,
+        IstekoRok
+    }
     abstract class Artikal
     {
         protected int bar_kod;
@@ -29,6 +36,7 @@ namespace prolecni_projekat
         protected string jedinicaProdaje;
         protected string usloviCuvanja; //opis
         protected VrstaArtikla vrsta;
+        protected StanjeArtikla stanje;
 
         protected bool pred_istekom_roka;//nada dodala
 
@@ -54,6 +62,8 @@ namespace prolecni_projekat
             this.usloviCuvanja = usloviCuvanja;
             this.vrsta = vrsta;
             pred_istekom_roka = false;
+
+            this.stanje = StanjeArtikla.Normalno;
         }
 
         //konstruktor kad nema uslova cuvanja
@@ -69,13 +79,15 @@ namespace prolecni_projekat
             this.usloviCuvanja = "";
             this.vrsta = vrsta;
             pred_istekom_roka = false;
+
+            this.stanje = StanjeArtikla.Normalno;
         }
 
         public virtual void SmanjiCenu()
         {
-            TimeSpan razlika = rokTrajanja.Subtract(DateTime.Now);
-            if(razlika.TotalDays < 10)
-            {
+            //TimeSpan razlika = rokTrajanja.Subtract(DateTime.Now);
+            //if (razlika.TotalDays < 10)
+            //{
                 cena -= (cena / 10) * 3;
 
                 //if(vrsta.Equals(VrstaArtikla.Meso) || vrsta.Equals(VrstaArtikla.MlecniProizvod) 
@@ -87,7 +99,15 @@ namespace prolecni_projekat
                 //{
                 //    cena -= (cena / 10) * 3;
                 //}
-            }
+            //}
+        }
+
+        /*public bool PredIstekom()
+        {
+            TimeSpan razlika = rokTrajanja.Subtract(DateTime.Now);
+            if (razlika.TotalDays < 10)
+                return true;
+            return false;
         }
 
         public bool IstekoRok()
@@ -95,6 +115,19 @@ namespace prolecni_projekat
             if (DateTime.Now > rokTrajanja)
                 return true;
             return false;
+        }*/
+
+
+        //ovo izgleda ipak ne treba jer aranzer to treba da uradi i da vrati a ne kod???
+        public StanjeArtikla NadjiStanje()
+        {
+            TimeSpan razlika = rokTrajanja.Subtract(DateTime.Now);
+            if (razlika.TotalDays <= 0)
+                return StanjeArtikla.IstekoRok;
+            else if (razlika.TotalDays < 10)
+                return StanjeArtikla.PredIstekom;
+            else
+                return StanjeArtikla.Normalno;
         }
 
 

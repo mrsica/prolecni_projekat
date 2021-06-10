@@ -22,6 +22,10 @@ namespace prolecni_projekat
 
         public void Proveri(Lager lager, int odakle, int dokle)
         {
+            foreach(KeyValuePair<Artikal,int> par in lager.Stanje)
+            {
+                par.Key.NadjiStanje();
+            }
             PokvarenoEvent?.Invoke(this, new AranzerEventArgs(lager, odakle, dokle));
             //mozda ipak ovo treba da se poziva kada sazna da je pokvareno da se vrati na 
             //centralni lager

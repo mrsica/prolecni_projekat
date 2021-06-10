@@ -9,7 +9,7 @@ namespace prolecni_projekat
 {
     class Lager
     {
-        MapaArtikala stanje;
+        MapaArtikala stanje; //jel treba uopste nova klasa ili moze samo obican dictionary
         List<Artikal> skup_artikala; //ako se ukloni rok trajanja onda samo mapa artikala sa kljucem
         //Artikal a da nema skupa artikala a da je hash kod bar kod
         //msm malo je bezveze da se menja zadatak ali videcemo
@@ -17,6 +17,17 @@ namespace prolecni_projekat
         public int BrojArtikalaNaLageru
         {
             get { return skup_artikala.Count; }
+        }
+
+        public MapaArtikala Stanje
+        {
+            get { return stanje; }
+            set 
+            { 
+                if(value is MapaArtikala)
+                    this.Dodaj(value as MapaArtikala);
+
+            }
         }
 
         //treba dodati bukv skup artikala koji postoje ovde
@@ -29,6 +40,14 @@ namespace prolecni_projekat
 
         // TO_DO: dodati da se artikli mogu dodavati grupno
 
+        public void Dodaj(MapaArtikala ma)
+        {
+            foreach (KeyValuePair<Artikal, int> a in ma)
+            {
+                Dodaj(a.Key, a.Value);
+            }
+        }
+
         public void Dodaj(Artikal a, int kolicina) 
         {
             stanje.Dodaj(a, kolicina);
@@ -36,13 +55,7 @@ namespace prolecni_projekat
         }
 
         
-        public void Dodaj(MapaArtikala ma)
-        {
-            foreach(KeyValuePair<Artikal,int> a in ma)
-            {
-                Dodaj(a.Key, a.Value);
-            }
-        }
+        
 
 
 

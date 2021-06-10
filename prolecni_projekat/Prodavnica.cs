@@ -25,9 +25,18 @@ namespace prolecni_projekat
         //za isporuku isto mozda na lageru da se poziva?
         //ili se samo lager_prodavnice.isporukaEvent+=onIsporuka
         //imam osecaj da treba puno dogadjaja a cini mi se da su mozda visak
-        public void onPokvarenoEvent(object sender, AranzerEventArgs args)
+        public void onIstekoRokEvent(object sender, AranzerEventArgs args)
         {
+            //skida sa lagera sve argumente
 
+            //mozda sad menadzer?.invoke dogadjaj da se vrati na centralni
+            //ne znam kako da povezem sa centralnim lagerom
+            //ne mora sad to samo neka ga samo skloni sa lagera  
+        }
+
+        public void onPrimiRobuEvent(object sender, MenadzerEventArgs args)
+        {
+            lager_prodavnice.Dodaj(args.ma);
         }
 
 
@@ -47,15 +56,27 @@ namespace prolecni_projekat
                 spisak_slobodnih_radnih_mesta[r.UlogaRadnika]--;
                 if (r.UlogaRadnika == Uloga.Aranzer)
                     broj_zaposlenih_aranzera++;
+                if(r is MenadzerProdavnice)
+                {
+                    MenadzerProdavnice mp = r as MenadzerProdavnice;
+                    mp.PrimiRobuEvent += onPrimiRobuEvent;
+                }
                 return true;
             }
             return false;
         }
 
+
         protected bool OtpustiRadnika(Radnik r)
         {
             if(spisak_zaposlenih.Contains(r))
             {
+                if(r is MenadzerProdavnice)
+                {
+                    MenadzerProdavnice mp = r as MenadzerProdavnice;
+                    mp.PrimiRobuEvent -= onPrimiRobuEvent;
+                }
+
                 spisak_zaposlenih.Remove(r);
                 spisak_slobodnih_radnih_mesta[r.UlogaRadnika]++;
                 return true;
@@ -83,6 +104,7 @@ namespace prolecni_projekat
                 {
                     Aranzer a = r as Aranzer;
                     //odakle dokle sa liste artikala sa lagera koje sve proverava 1 aranzer
+                    //kako podeliti posao aranzerima?
                     a.Proveri(lager_prodavnice,ind_aranzera*broj_artikala_po_aranzeru,(ind_aranzera+1)*broj_artikala_po_aranzeru-1);
                     ind_aranzera++;
                 }

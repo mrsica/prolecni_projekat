@@ -12,6 +12,14 @@ namespace prolecni_projekat
         int odakle;
         int dokle;
 
+        Artikal a;
+
+        public AranzerEventArgs(Artikal a)
+        {
+            this.a = a;
+        }
+
+        //msm da ne treba, napravljeno u zbunj fazi xd
         public AranzerEventArgs(Lager lager, int odakle, int dokle)
         {
             this.lager = lager;
