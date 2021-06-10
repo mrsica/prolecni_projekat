@@ -16,5 +16,14 @@ namespace prolecni_projekat
             //dogadjaj poziva se na lageru onPrijem robe
             throw new NotImplementedException();
         }
+
+        public delegate void MenadzerDelegateType(object sender, MenadzerEventArgs args);
+
+        public event MenadzerDelegateType PrimiRobuEvent;
+
+        public void primiRobu(MapaArtikala ma)
+        {
+            PrimiRobuEvent?.Invoke(this,new MenadzerEventArgs(ma));
+        }
     }
 }

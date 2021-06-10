@@ -19,6 +19,19 @@ namespace prolecni_projekat
         protected bool otvorena;
         protected int broj_zaposlenih_aranzera;
 
+        //nisam sigurna gde treba ovi onEvent da idu, ako kaze ovde
+        //jel samo brise sa lagera, jel onda treba da se salje menadzeru da vrati
+        //na centralni? mozda treba na lageru?
+        //za isporuku isto mozda na lageru da se poziva?
+        //ili se samo lager_prodavnice.isporukaEvent+=onIsporuka
+        //imam osecaj da treba puno dogadjaja a cini mi se da su mozda visak
+        public void onPokvarenoEvent(object sender, AranzerEventArgs args)
+        {
+
+        }
+
+
+
         public Prodavnica(double p)
         {
             lager_prodavnice = new Lager(); // ne znam gde ubacujem stvari u lager?

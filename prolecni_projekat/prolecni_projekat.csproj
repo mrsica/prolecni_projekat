@@ -65,6 +65,7 @@
     <Compile Include="MalaProdavnica.cs" />
     <Compile Include="MapaArtikala.cs" />
     <Compile Include="Lager.cs" />
+    <Compile Include="MenadzerEventArgs.cs" />
     <Compile Include="MenadzerPoslovneJedinice.cs" />
     <Compile Include="MenadzerProdavnice.cs" />
     <Compile Include="Mesar.cs" />

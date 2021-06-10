@@ -31,11 +31,18 @@ namespace prolecni_projekat
 
         public void Dodaj(Artikal a, int kolicina) 
         {
-            stanje.Dodaj(a.BarKod, kolicina);
+            stanje.Dodaj(a, kolicina);
             skup_artikala.Add(a); //jel treba uvek? nmp
         }
 
         
+        public void Dodaj(MapaArtikala ma)
+        {
+            foreach(KeyValuePair<Artikal,int> a in ma)
+            {
+                Dodaj(a.Key, a.Value);
+            }
+        }
 
 
 
