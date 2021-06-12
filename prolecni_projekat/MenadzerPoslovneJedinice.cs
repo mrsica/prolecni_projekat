@@ -10,6 +10,8 @@ namespace prolecni_projekat
     {
         public MenadzerPoslovneJedinice() : base(Uloga.Menadzer_Posl_Jed) { }
 
+        // valjda ovde ide samo lista prodavnica kojima upravlja (odnosno PJ kojom upravlja)
+
         public override void radi()
         {
             throw new NotImplementedException();

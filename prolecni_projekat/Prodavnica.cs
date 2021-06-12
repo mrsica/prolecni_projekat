@@ -38,7 +38,8 @@ namespace prolecni_projekat
             povrsina = p;
             broj_zaposlenih_aranzera = 0;
         }
-
+         
+        // i ovo bi trebalo da vrsi menadzer prodavnice (zaposljavanje i otpustanje radnika)
         protected bool ZaposliRadnika(Radnik r)
         {
             if (spisak_slobodnih_radnih_mesta.ContainsKey(r.UlogaRadnika) && spisak_slobodnih_radnih_mesta[r.UlogaRadnika] > 0)
@@ -73,25 +74,27 @@ namespace prolecni_projekat
 
         //dogadjaj proveri
 
-        public void ProveriArtikle()
-        {
-            int broj_artikala_po_aranzeru = lager_prodavnice.BrojArtikalaNaLageru / broj_zaposlenih_aranzera;
-            int ind_aranzera = 0;
-            foreach (Radnik r in spisak_zaposlenih)
-            {
-                if (r.UlogaRadnika == Uloga.Aranzer)
-                {
-                    Aranzer a = r as Aranzer;
-                    //odakle dokle sa liste artikala sa lagera koje sve proverava 1 aranzer
-                    a.Proveri(lager_prodavnice,ind_aranzera*broj_artikala_po_aranzeru,(ind_aranzera+1)*broj_artikala_po_aranzeru-1);
-                    ind_aranzera++;
-                }
+        // proveru ipak vrsi menadzer prodavnice, ne aranzer
+
+        //public void ProveriArtikle()
+        //{
+        //    int broj_artikala_po_aranzeru = lager_prodavnice.BrojArtikalaNaLageru / broj_zaposlenih_aranzera;
+        //    int ind_aranzera = 0;
+        //    foreach (Radnik r in spisak_zaposlenih)
+        //    {
+        //        if (r.UlogaRadnika == Uloga.Aranzer)
+        //        {
+        //            Aranzer a = r as Aranzer;
+        //            //odakle dokle sa liste artikala sa lagera koje sve proverava 1 aranzer
+        //            a.Proveri(lager_prodavnice,ind_aranzera*broj_artikala_po_aranzeru,(ind_aranzera+1)*broj_artikala_po_aranzeru-1);
+        //            ind_aranzera++;
+        //        }
 
                     
-            }
+        //    }
             
 
-        }
+        //}
 
         
     }
